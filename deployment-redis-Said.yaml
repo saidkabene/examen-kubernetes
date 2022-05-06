@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis-said
+  labels:
+    app: redis-said
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis-said
+  template:
+    metadata:
+      labels:
+        app: redis-said
+    spec:
+      containers:
+        - name: redis
+          image: redis
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 6379
+
+              

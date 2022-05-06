@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-said 
+  labels:
+    app: react-said 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react-said
+  template:
+    metadata:
+      labels:
+        app: react-said
+    spec:
+      containers:
+        - name: node-redis-regcred
+          image: kabsaid/image_react:redis
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80
+
